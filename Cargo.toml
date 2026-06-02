@@ -2,12 +2,12 @@
 name = "lie-algebra"
 version = "0.1.0"
 edition = "2021"
-
-[lib]
-path = "src/lib.rs"
 description = "Lie algebras in Rust — Lie brackets, structure constants, representations, root systems, Cartan subalgebras"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/SuperInstance/lie-algebra"
+
+[lib]
+path = "src/lib.rs"
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
