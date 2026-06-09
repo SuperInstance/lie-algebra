@@ -7,9 +7,8 @@
 
 use lie_algebra::{
     cross_product_lie, gl, heisenberg, sl2, sl2_fundamental_representation,
-    sl2_root_system, sl_n_root_system, so3, upper_triangular, DenseMatrix,
-    DynkinDiagram, DynkinType, ExponentialMap, LieAlgebra, LieRepresentation,
-    RootSystem,
+    sl2_root_system, sl_n_root_system, so3, upper_triangular,
+    DynkinDiagram, ExponentialMap, LieAlgebra,
 };
 
 // ── Lesson 1: What is a Lie Algebra? ─────────────────────────────────────────
@@ -70,8 +69,8 @@ fn lesson_2_structure_constants() {
     ];
     println!("    Nonzero brackets:");
     for ([i, j], label) in &brackets {
-        let a = lie_algebra::unit_vec(*i, 3);
-        let b = lie_algebra::unit_vec(*j, 3);
+        let mut a = vec![0.0; 3]; a[*i] = 1.0;
+        let mut b = vec![0.0; 3]; b[*j] = 1.0;
         let br = alg.bracket(&a, &b);
         let terms: Vec<String> = br.iter().enumerate()
             .filter(|(_, &v)| v.abs() > 1e-10)
